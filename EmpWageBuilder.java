@@ -9,6 +9,8 @@ public class EmpWageBuilder{
 	// using ArrayList to store the data
 	private ArrayList<CompanyEmpWage> companyWageArrayList= new ArrayList<CompanyEmpWage>();
 
+	// using Dictionary to store total employee wage store
+	private Dictionary<String,Integer> totalWageStore = new Hashtable<String,Integer>();
 
 	//adding each company wage data
 	private void addCompanyWage(String company, int empRatePerHour, int empWorkingDay, int maxHourInMonth) {
@@ -22,6 +24,17 @@ public class EmpWageBuilder{
 		for(int c=0; c<number_of_companies; c++) {
 			int totalEmployeeWage = this.calculate_empWage(companyWageArrayList.get(c));
 			System.out.println("Total Employee Wage for company "+companyWageArrayList.get(c).company+" is "+totalEmployeeWage);
+			totalWageStore.put(companyWageArrayList.get(c).company,totalEmployeeWage);
+		}
+	}
+
+	public void getTotalEmpWage(){
+		int input =2;
+		while(input !=0) {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the company name");
+			String companyName=sc.next();
+			System.out.println("The total employee wage of " +companyName+ " is : "+totalWageStore.get(companyName));
 		}
 	}
 
