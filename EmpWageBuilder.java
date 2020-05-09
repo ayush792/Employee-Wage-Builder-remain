@@ -20,8 +20,8 @@ public class EmpWageBuilder{
 	//computing every company employee wage
 	private void computeEmployeeWage(){
 		for(int c=0; c<number_of_companies; c++) {
-			int totalEmployeeWage = this.calculate_empWage(array[c]);
-			System.out.println("Total Employee Wage for company "+array[c].company+" is "+totalEmployeeWage);
+			int totalEmployeeWage = this.calculate_empWage(companyWageArrayList.get(c));
+			System.out.println("Total Employee Wage for company "+companyWageArrayList.get(c).company+" is "+totalEmployeeWage);
 		}
 	}
 
@@ -46,7 +46,8 @@ public class EmpWageBuilder{
 			}
 
 			totalEmpHours = totalEmpHours + empHours;
-			System.out.println("Day : "+ empWorkingDay+ " Employee Hour : "+empHours);
+			int dailyWage= companyEmpWage.empRatePerHour*empHours;
+			System.out.println("Day : "+ empWorkingDay+ " Employee Hour : "+empHours+" and daily wage : "+dailyWage);
 		}
 		return totalEmpHours *companyEmpWage.empRatePerHour;
 	}
