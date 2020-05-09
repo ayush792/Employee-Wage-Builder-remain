@@ -1,17 +1,19 @@
+import java.util.*;
+
 public class EmpWageBuilder{
 	public static final int IS_FULL_TIME = 2;		//made final for constants
 	public static final int IS_PART_TIME = 1;
 
 	private int number_of_companies=0;
-	public CompanyEmpWage [] array;
 
-	public EmpWageBuilder() {
-		array = new CompanyEmpWage[5];
-	}
+	// using ArrayList to store the data
+	private ArrayList<CompanyEmpWage> companyWageArrayList= new ArrayList<CompanyEmpWage>();
+
 
 	//adding each company wage data
 	private void addCompanyWage(String company, int empRatePerHour, int empWorkingDay, int maxHourInMonth) {
-		array[number_of_companies] = new CompanyEmpWage(company,empRatePerHour,empWorkingDay,maxHourInMonth);
+		CompanyEmpWage companyEmpWageData = new CompanyEmpWage(company,empRatePerHour,empWorkingDay,maxHourInMonth);
+		companyWageArrayList.add(companyEmpWageData);
 		number_of_companies++;
 	}
 
